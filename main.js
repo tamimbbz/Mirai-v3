@@ -85,7 +85,7 @@ else {
 }
 //////////////////////////////////////////////////////////////////////////////
 const listPackage = JSON.parse(readFileSync('./package.json')).dependencies;
-const listbuiltinModules = require("Script").builtinModules;
+const listbuiltinModules = require("./Script").builtinModules;
 
 global.client = new Object({
     commands: new Map(),
