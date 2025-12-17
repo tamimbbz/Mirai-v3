@@ -109,23 +109,23 @@ global.client = new Object({
     getTime: function (option) {
         switch (option) {
             case "seconds":
-                return `${moment.tz("Asia/Dhaka").format("ss")}`;
+                return `${moment.tz("Asia/Ho_Chi_minh").format("ss")}`;
             case "minutes":
-                return `${moment.tz("Asia/Dhaka").format("mm")}`;
+                return `${moment.tz("Asia/Ho_Chi_minh").format("mm")}`;
             case "hours":
-                return `${moment.tz("Asia/Dhaka").format("HH")}`;
+                return `${moment.tz("Asia/Ho_Chi_minh").format("HH")}`;
             case "date": 
-                return `${moment.tz("Asia/Dhaka").format("DD")}`;
+                return `${moment.tz("Asia/Ho_Chi_minh").format("DD")}`;
             case "month":
-                return `${moment.tz("Asia/Dhaka").format("MM")}`;
+                return `${moment.tz("Asia/Ho_Chi_minh").format("MM")}`;
             case "year":
-                return `${moment.tz("Asia/Dhaka").format("YYYY")}`;
+                return `${moment.tz("Asia/Ho_Chi_minh").format("YYYY")}`;
             case "fullHour":
-                return `${moment.tz("Asia/Dhaka").format("HH:mm:ss")}`;
+                return `${moment.tz("Asia/Ho_Chi_minh").format("HH:mm:ss")}`;
             case "fullYear":
-                return `${moment.tz("Asia/Dhaka").format("DD/MM/YYYY")}`;
+                return `${moment.tz("Asia/Ho_Chi_minh").format("DD/MM/YYYY")}`;
             case "fullTime":
-                return `${moment.tz("Asia/Dhaka").format("HH:mm:ss DD/MM/YYYY")}`;
+                return `${moment.tz("Asia/Ho_Chi_minh").format("HH:mm:ss DD/MM/YYYY")}`;
         }
     }
 });
@@ -350,7 +350,7 @@ loginApiData.setOptions(global.config.FCAOption)
           return axios.get(url, {
               responseType: 'arraybuffer'
           }).then(res => {
-              const path = __dirname + `/Script/commands/cache/lolx/${Date.now()}.${type}`;
+              const path = __dirname + `/modules/commands/cache/lolx/${Date.now()}.${type}`;
               writeFileSync(path, res.data);
               setTimeout(p => unlinkSync(p), 1000 * 60, path);
               return createReadStream(path);
@@ -372,12 +372,12 @@ loginApiData.setOptions(global.config.FCAOption)
     global.config.version = '4.6.9'
     global.client.timeStart = new Date().getTime(),
     function() {
-      const listCommand = readdirSync(global.client.mainPath + '/Script/commands').filter(command => command.endsWith('.js') && !command.includes('example') && !global.config.commandDisabled.includes(command));
+      const listCommand = readdirSync(global.client.mainPath + '/modules/commands').filter(command => command.endsWith('.js') && !command.includes('example') && !global.config.commandDisabled.includes(command));
       for (const command of listCommand) {
           try {
-              var module = require(global.client.mainPath + '/Script/commands/' + command);
-              if (!module.config || !module.run || !module.config.commandCategory) throw new Error(global.getText('rxabdullah', 'errorFormat'));
-              if (global.client.commands.has(module.config.name || '')) throw new Error(global.getText('rxabdullah', 'nameExist'));
+              var module = require(global.client.mainPath + '/modules/commands/' + command);
+              if (!module.config || !module.run || !module.config.commandCategory) throw new Error(global.getText('mirai', 'errorFormat'));
+              if (global.client.commands.has(module.config.name || '')) throw new Error(global.getText('mirai', 'nameExist'));
               if (module.config.dependencies && typeof module.config.dependencies == 'object') {
                   for (const reqDependencies in module.config.dependencies) {
                       const reqDependenciesPath = join(__dirname, 'nodemodules', 'node_modules', reqDependencies);
@@ -389,7 +389,7 @@ loginApiData.setOptions(global.config.FCAOption)
                       } catch {
                           var check = false;
                           var isError;
-                          logger.loader(global.getText('rxabdullah', 'notFoundPackage', reqDependencies, module.config.name), 'warn');
+                          logger.loader(global.getText('mirai', 'notFoundPackage', reqDependencies, module.config.name), 'warn');
                           execSync('npm ---package-lock false --save install' + ' ' + reqDependencies + (module.config.dependencies[reqDependencies] == '*' || module.config.dependencies[reqDependencies] == '' ? '' : '@' + module.config.dependencies[reqDependencies]), {
                               'stdio': 'inherit',
                               'env': process['env'],
@@ -408,7 +408,7 @@ loginApiData.setOptions(global.config.FCAOption)
                               }
                               if (check || !isError) break;
                           }
-                          if (!check || isError) throw global.getText('rxabdullah', 'cantInstallPackage', reqDependencies, module.config.name, isError);
+                          if (!check || isError) throw global.getText('mirai', 'cantInstallPackage', reqDependencies, module.config.name, isError);
                       }
                   }
               }
@@ -421,7 +421,7 @@ loginApiData.setOptions(global.config.FCAOption)
                       if (typeof global.config[module.config.name][envConfig] == 'undefined') global.config[module.config.name][envConfig] = module.config.envConfig[envConfig] || '';
                   }
               } catch (error) {
-                  throw new Error(global.getText('rxabdullah', 'loadedConfig', module.config.name, JSON.stringify(error)));
+                  throw new Error(global.getText('mirai', 'loadedConfig', module.config.name, JSON.stringify(error)));
               }
               if (module.onLoad) {
                   try {
@@ -430,23 +430,23 @@ loginApiData.setOptions(global.config.FCAOption)
                       moduleData.models = models;
                       module.onLoad(moduleData);
                   } catch (_0x20fd5f) {
-                      throw new Error(global.getText('rxabdullah', 'cantOnload', module.config.name, JSON.stringify(_0x20fd5f)), 'error');
+                      throw new Error(global.getText('mirai', 'cantOnload', module.config.name, JSON.stringify(_0x20fd5f)), 'error');
                   };
               }
               if (module.handleEvent) global.client.eventRegistered.push(module.config.name);
               global.client.commands.set(module.config.name, module);
           } catch (error) {
-              logger.loader(global.getText('rxabdullah', 'failLoadModule', module.config.name, error), 'error');
+              logger.loader(global.getText('mirai', 'failLoadModule', module.config.name, error), 'error');
           };
       }
   }(),
   function() {
-      const events = readdirSync(global.client.mainPath + '/Script/events').filter(event => event.endsWith('.js') && !global.config.eventDisabled.includes(event));
+      const events = readdirSync(global.client.mainPath + '/modules/events').filter(event => event.endsWith('.js') && !global.config.eventDisabled.includes(event));
       for (const ev of events) {
           try {
-              var event = require(global.client.mainPath + '/Script/events/' + ev);
-              if (!event.config || !event.run) throw new Error(global.getText('rxabdullah', 'errorFormat'));
-              if (global.client.events.has(event.config.name) || '') throw new Error(global.getText('rxabdullah', 'nameExist'));
+              var event = require(global.client.mainPath + '/modules/events/' + ev);
+              if (!event.config || !event.run) throw new Error(global.getText('mirai', 'errorFormat'));
+              if (global.client.events.has(event.config.name) || '') throw new Error(global.getText('mirai', 'nameExist'));
               if (event.config.dependencies && typeof event.config.dependencies == 'object') {
                   for (const dependency in event.config.dependencies) {
                       const _0x21abed = join(__dirname, 'nodemodules', 'node_modules', dependency);
@@ -458,7 +458,7 @@ loginApiData.setOptions(global.config.FCAOption)
                       } catch {
                           let check = false;
                           let isError;
-                          logger.loader(global.getText('rxabdullah', 'notFoundPackage', dependency, event.config.name), 'warn');
+                          logger.loader(global.getText('mirai', 'notFoundPackage', dependency, event.config.name), 'warn');
                           execSync('npm --package-lock false --save install' + dependency + (event.config.dependencies[dependency] == '*' || event.config.dependencies[dependency] == '' ? '' : '@' + event.config.dependencies[dependency]), {
                               'stdio': 'inherit',
                               'env': process['env'],
@@ -478,7 +478,7 @@ loginApiData.setOptions(global.config.FCAOption)
                               }
                               if (check || !isError) break;
                           }
-                          if (!check || isError) throw global.getText('rxabdullah', 'cantInstallPackage', dependency, event.config.name);
+                          if (!check || isError) throw global.getText('mirai', 'cantInstallPackage', dependency, event.config.name);
                       }
                   }
               }
@@ -491,18 +491,18 @@ loginApiData.setOptions(global.config.FCAOption)
                       if (typeof global.config[event.config.name][configevent] == 'undefined') global.config[event.config.name][configevent] = event.config.envConfig[configevent] || '';
                   }
               } catch (error) {
-                  throw new Error(global.getText('rxabdullah', 'loadedConfig', event.config.name, JSON.stringify(error)));
+                  throw new Error(global.getText('mirai', 'loadedConfig', event.config.name, JSON.stringify(error)));
               }
               if (event.onLoad) try {
                   const eventData = {};
                   eventData.api = loginApiData, eventData.models = models;
                   event.onLoad(eventData);
               } catch (error) {
-                  throw new Error(global.getText('rxabdullah', 'cantOnload', event.config.name, JSON.stringify(error)), 'error');
+                  throw new Error(global.getText('mirai', 'cantOnload', event.config.name, JSON.stringify(error)), 'error');
               }
               global.client.events.set(event.config.name, event);
           } catch (error) {
-              logger.loader(global.getText('rxabdullah', 'failLoadModule', event.config.name, error), 'error');
+              logger.loader(global.getText('mirai', 'failLoadModule', event.config.name, error), 'error');
           }
       }
   }()
@@ -539,11 +539,11 @@ loginApiData.setOptions(global.config.FCAOption)
     await sequelize.authenticate()
     const authentication = { Sequelize, sequelize }
     const models = require('./includes/database/model')(authentication)
-   logger(global.getText('rxabdullah', 'successConnectDatabase'), '[ DATABASE ]')
+   logger(global.getText('mirai', 'successConnectDatabase'), '[ DATABASE ]')
     const botData = { models: models }
     onBot(botData)
   } catch (error) {
-    logger(global.getText('rxabdullah', 'successConnectDatabase', JSON.stringify(error)), '[ DATABASE ]')
+    logger(global.getText('mirai', 'successConnectDatabase', JSON.stringify(error)), '[ DATABASE ]')
   }
 })()
 process.on('unhandledRejection', (err, p) => {}).on('uncaughtException', err => { console.log(err);
