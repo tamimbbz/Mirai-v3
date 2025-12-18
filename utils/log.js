@@ -92,15 +92,15 @@ module.exports.loader = (data, option) => {
 
   switch (option) {
     case 'warn':
-      coloredData = co('[===== QINDY- Gkhanh =====] - ' + data);
+      coloredData = co('[===== MARIA- V3 =====] - ' + data);
       console.log(chalk.bold(coloredData));
       break;
     case 'error':
-      coloredData = co('[ QINDY-GKAHNH ] - ') + data;
+      coloredData = co('[ MARIA-V3 ] - ') + data;
       console.log(chalk.bold(coloredData));
       break;
     default:
-      coloredData = co('[ QINDY-GKHANH ] - ' + data);
+      coloredData = co('[ MARIA-V3 ] - ' + data);
       console.log(chalk.bold(coloredData));
       break;
   }
