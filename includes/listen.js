@@ -11,9 +11,9 @@ module.exports = function ({ api, models }) {
   const moment = require('moment-timezone');
   const axios = require("axios");
   const config = require("./../config.json");
-/////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////// fixed bY rX
 
-  var day = moment.tz("Asia/Ho_Chi_Minh").day();
+  var day = moment.tz("Asia/Dhaka").day();
   const checkttDataPath = __dirname + '/../modules/commands/tt/';
   setInterval(async() => {
     const day_now = moment.tz("Asia/Dhaka").day();
