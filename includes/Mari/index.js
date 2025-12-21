@@ -23,11 +23,11 @@ global.Fca = new Object({
     },
     Data: new Object({
         ObjFastConfig: {
-            "Language": "vi",
+            "Language": "en",
             "PreKey": "",
             "AutoUpdate": true,
             "MainColor": "#9900FF",
-            "MainName": "[ FCA-HZI ]",
+            "MainName": "[ MARIA-FCA ]",
             "Uptime": false,
             "Config": "default",
             "DevMode": false,
