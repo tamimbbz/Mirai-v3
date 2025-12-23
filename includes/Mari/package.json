@@ -1,13 +1,13 @@
 {
   "name": "rx-maria",
   "version": "3.0.0",
-  "description": "Project oF rX",
+  "description": "Project of rX - Maria FCA Messenger Bot",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "mocha"
   },
-  "author": "rX",
+  "author": "rX Abdullah",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/rxabdullah0007/rx-fca/issues"
@@ -17,49 +17,49 @@
     "type": "git",
     "url": "https://github.com/rxabdullah0007/rx-fca.git"
   },
+
+  "engines": {
+    "node": "18.x"
+  },
+
   "dependencies": {
-    "aes-js": "latest",
-    "ansi-to-html": "latest",
-    "assert": "latest",
-    "better-sqlite3": "7.6.2",
-    "bluebird": "latest",
+    "aes-js": "^3.1.2",
+    "ansi-to-html": "^0.7.2",
+    "assert": "^2.1.0",
+    "better-sqlite3": "7.5.3",
+    "bluebird": "^3.7.2",
     "chalk": "4.1.2",
     "cheerio": "1.0.0-rc.12",
-    "crypto-js": "latest",
+    "crypto-js": "^4.2.0",
     "deasync": "^0.1.28",
     "duplexify": "^4.1.2",
-    "encode32": "latest",
-    "express": "latest",
-    "figlet": "latest",
+    "encode32": "^1.1.0",
+    "express": "^4.19.2",
+    "figlet": "^1.7.0",
     "file-url": "^3.0.0",
     "got": "^11.8.6",
-    "https-proxy-agent": "latest",
+    "https-proxy-agent": "^7.0.4",
     "is-hexcolor": "^1.0.0",
-    "lodash": "latest",
+    "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "mqtt": "^4.3.7",
-    "npmlog": "latest",
-    "os": "latest",
-    "path": "latest",
-    "pretty-ms": "7.0.1",
-    "readable-stream": "^4.4.0",
-    "readline": "latest",
-    "request": "latest",
-    "speakeasy": "latest",
-    "sqlite3": "^5.0.2",
+    "npmlog": "^7.0.1",
+    "pretty-ms": "^7.0.1",
+    "readable-stream": "^4.4.2",
+    "request": "^2.88.2",
+    "speakeasy": "^2.0.0",
     "totp-generator": "^0.0.14",
-    "tough-cookie": "^4.1.2",
-    "uuid": "latest",
-    "ws": "^8.13.0"
+    "tough-cookie": "^4.1.3",
+    "uuid": "^9.0.1",
+    "ws": "^8.17.0"
   },
-  "engines": {
-    "node": ">=20.0.0"
-  },
+
   "devDependencies": {
-    "eslint": "^8.40.0",
-    "mocha": "latest",
-    "prettier": "latest"
+    "eslint": "^8.56.0",
+    "mocha": "^10.4.0",
+    "prettier": "^3.3.3"
   },
+
   "eslintConfig": {
     "env": {
       "es6": true,
@@ -67,7 +67,8 @@
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-      "sourceType": "module"
+      "ecmaVersion": "latest",
+      "sourceType": "script"
     },
     "rules": {
       "linebreak-style": ["error", "unix"],
@@ -75,10 +76,13 @@
       "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }]
     }
   },
+
   "keywords": [
-    "Fca rX",
-    "maria-fca",
-    "rXdeV",
-    "fca-maria"
+    "fca",
+    "fca-maria",
+    "messenger-bot",
+    "facebook-bot",
+    "rx-maria",
+    "mirai-bot"
   ]
 }
