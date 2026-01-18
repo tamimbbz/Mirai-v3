@@ -20,8 +20,8 @@ module.exports.config = {
   name: "protect",
   eventType: ["log:thread-name", "log:thread-icon", "log:thread-image"],
   version: "2.5.0",
-  credits: "rX Abdullah",
-  description: "Manual + Auto-save group protection (Maria × rX Chatbot)"
+  credits: "rX | 𝗺𝗼𝗱𝗶𝗳𝘆 𝗧𝗮𝗺𝗶𝗺 𝗯𝗯𝘇",
+  description: "Manual + Auto-save group protection (𝗦𝗨𝗥𝗢𝗩𝗜 × 𝗯𝗯𝘇 𝗰𝗵𝗮𝘁𝗯𝗼𝘅)"
 };
 
 // 🚀 Run on bot start → auto-save all groups
@@ -67,14 +67,14 @@ module.exports.runEvent = async function({ event, api }) {
     } 
     else if (event.logMessageType === "log:thread-icon" && info.emoji) {
       await api.changeThreadEmoji(info.emoji, threadID);
-      await api.sendMessage("⚠️ ইমোজি পরিবর্তন অনুমোদিত নয়!\n🩷 This group is protected", threadID);
+      await api.sendMessage("⚠️ ইমোজি পরিবর্তন অনুমোদিত নয়!\n🩷 𝗧𝗵𝗶𝘀 𝗴𝗿𝗼𝘂𝗽 𝗶𝘀𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗲𝗱", threadID);
     } 
     else if (event.logMessageType === "log:thread-image") {
       const pathImg = path.join(__dirname, "rx", "cache", threadID + ".png");
       if (fs.existsSync(pathImg)) {
         await api.changeGroupImage(fs.createReadStream(pathImg), threadID);
       }
-      await api.sendMessage("⚠️ গ্রুপ ছবির পরিবর্তন অনুমোদিত নয়!\n🩷 This group is protected by rX Chat bot", threadID);
+      await api.sendMessage("⚠️ গ্রুপ ছবির পরিবর্তন অনুমোদিত নয়!\n🩷 𝗧𝗵𝗶𝘀 𝗴𝗿𝗼𝘂𝗽 𝗶𝘀𝗽𝗿𝗼𝘁𝗲𝗰𝘁𝗲𝗱 𝗯𝘆 𝗯𝗯𝘇 𝗰𝗵𝗮𝘁 𝗯𝗼𝘁", threadID);
     }
 
   } catch (err) {
