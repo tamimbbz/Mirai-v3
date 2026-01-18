@@ -34,17 +34,17 @@ module.exports.loader = (data, option) => {
 
   switch (option) {
     case 'warn':
-      coloredData = co('[===== 𝗦𝗛𝗔𝗬𝗠 -𝗩3 =====] - ' + data);
+      coloredData = co('[===== SUROVI -𝗩3 =====] - ' + data);
       console.log(chalk.bold(coloredData));
       break;
 
     case 'error':
-      coloredData = chalk.bold.red('[ 𝗦𝗛𝗔𝗬𝗠 -𝗩3 ] - ' + data);
+      coloredData = chalk.bold.red('[ SUROVI -𝗩3 ] - ' + data);
       console.log(coloredData);
       break;
 
     default:
-      coloredData = co('[ 𝗦𝗛𝗔𝗬𝗠 -𝗩3 ] - ' + data);
+      coloredData = co('[ SUROVI -𝗩3 ] - ' + data);
       console.log(chalk.bold(coloredData));
       break;
   }
