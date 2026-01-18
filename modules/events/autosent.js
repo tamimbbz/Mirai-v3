@@ -2,7 +2,7 @@ module.exports.config = {
  name: "autosend",
  eventType: [],
  version: "0.0.1",
- credits: "rX",
+ credits: "rX | 𝗺𝗼𝗱𝗶𝗳𝘆 𝗧𝗮𝗺𝗶𝗺 𝗯𝗯𝘇",
  description: "Listen events"
 };
 
