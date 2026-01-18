@@ -8,7 +8,7 @@ Canvas.registerFont(path.join(__dirname, "cache", "kalpurush.ttf"), {
 module.exports.config = {
   name: "joinnoti",
   version: "4.3.0",
-  credits: "rX Abdullah", //don't change this credite for more update (github.com/rxabdullah007) 
+  credits: "rX | 𝗺𝗼𝗱𝗶𝗳𝘆 𝗧𝗮𝗺𝗶𝗺 𝗯𝗯𝘇", //don't change this credite for more update (g) 
   eventType: ["log:subscribe"],
   description: "Welcome image with profile borders, inviter shifted, and random background"
 };
@@ -26,11 +26,11 @@ module.exports.run = async function ({ api, event, Users }) {
   if (userID == botID) {
 
     api.sendMessage(
-      "𝐓𝐡𝐚𝐧𝐤𝐬 𝐟𝐨𝐫 𝐚𝐝𝐝𝐢𝐧𝐠 𝐦𝐞 ❤️\n𝐓𝐲𝐩𝐞 !𝐡𝐞𝐥𝐩 𝐭𝐨 𝐬𝐞𝐞 𝐦𝐲 𝐜𝐨𝐦𝐦𝐚𝐧𝐝𝐬!",
+      "𝐓𝐡𝐚𝐧𝐤𝐬 𝐟𝐨𝐫 𝐚𝐝𝐝𝐢𝐧𝐠 𝐦𝐞 ❤️\n𝐓𝐲𝐩𝐞 /𝐡𝐞𝐥𝐩 𝐭𝐨 𝐬𝐞𝐞 𝐦𝐲 𝐜𝐨𝐦𝐦𝐚𝐧𝐝𝐬!",
       threadID
     );
 
-    await api.changeNickname("Sııƞƞeɽ мΛяเα 倫ッ", threadID, botID);
+    await api.changeNickname("𝗕𝗯𝘇 𝗰𝗵𝗮𝘁 𝗯𝗼𝘁", threadID, botID);
 
     return;
   }
@@ -44,8 +44,8 @@ module.exports.run = async function ({ api, event, Users }) {
   const adminCount = info.adminIDs.length;
   const memberCount = info.participantIDs.length;
 
-  const male = info.userInfo.filter(u => u.gender === "MALE").length;
-  const female = info.userInfo.filter(u => u.gender === "FEMALE").length;
+  const male = info.userInfo.filter(u => u.gender === "𝗠𝗔𝗜𝗟").length;
+  const female = info.userInfo.filter(u => u.gender === "𝗙𝗘𝗠𝗔𝗜𝗟").length;
 
   const inviterID = event.author;
   const inviterName = await Users.getNameUser(inviterID);
@@ -197,7 +197,7 @@ module.exports.run = async function ({ api, event, Users }) {
     ctx.fillStyle = "#fff";
     ctx.textAlign = "center";
 
-    ctx.fillText(`✰ ${memberCount} Members     ♂️ ${male} Male     ♀️ ${female} Female     ★ Thanks for using: Maria v3`, 640, 695);
+    ctx.fillText(`✰ ${memberCount} Members     ♂️ ${male} Male     ♀️ ${female} Female     ★ Thanks for using: 𝗦𝗨𝗥𝗜𝗩𝗜 v3`, 640, 695);
 
     fs.writeFileSync(out, canvas.toBuffer());
 
